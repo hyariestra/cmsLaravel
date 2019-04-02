@@ -9,7 +9,7 @@
 	<thead>
 		<tr>
 			<th>Id</th>
-			<th>Nam</th>
+			<th>Name</th>
 			<th>Email</th>
 			<th>Role</th>
 			<th>Active</th>
@@ -19,9 +19,9 @@
 	</thead>
 	<tbody>
 		@if ($user)
-			
-			@foreach ($user as $record)
-				
+
+		@foreach ($user as $record)
+
 		<tr>
 			<td>{{$record->id}}</td>
 			<td>{{$record->name}}</td>
@@ -30,8 +30,9 @@
 			<td>{{$record->is_active==1?'Active':'Not Active'}}</td>
 			<td>{{$record->created_at->diffForHumans()}}</td>
 			<td>{{$record->updated_at->diffForHumans()}}</td>
-			@endforeach
 		</tr>
+		
+		@endforeach
 
 		@endif
 	</tbody>
