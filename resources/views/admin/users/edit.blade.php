@@ -9,13 +9,13 @@
 	
 
 	<div class="col-sm-3">
-		
+
 		<img class="img-responsive img-rounded" src="{{$user->photo?$user->photo->file:'http://placehold.it/400x400'}}" alt="">
 
 	</div>
 
 	<div class="col-sm-9">
-		
+
 		{!! Form::model($user,['method'=>'PATCH','action'=>['AdminUsersController@update',$user->id],'files'=>true]) !!}
 		<div class="form-group">
 			{!! Form::label('name','Name:') !!}
@@ -49,9 +49,17 @@
 		</div>
 
 		<div class="form-group">
-			{!! Form::submit('Create', ['class'=>'btn btn-primary']) !!}
+			{!! Form::submit('Update', ['class'=>'btn btn-primary']) !!}
 		</div>
 		{!! Form::close() !!}
+
+
+		{!! Form::open(['method'=>'DELETE','action'=>['AdminUsersController@destroy',$user->id]]) !!}
+
+		{!! Form::submit('Delete user', ['class'=>'btn btn-danger']) !!}
+
+		{!! Form::close() !!}
+
 
 	</div>
 
