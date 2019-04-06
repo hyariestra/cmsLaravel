@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Post;
 
 class AdminPostsController extends Controller
 {
@@ -15,7 +16,9 @@ class AdminPostsController extends Controller
      */
     public function index()
     {
-        return view('admin.posts.index'); 
+        $posts = Post::all();
+        $title = 'All Posts';
+        return view('admin.posts.index',compact('posts','title')); 
     }
 
     /**
