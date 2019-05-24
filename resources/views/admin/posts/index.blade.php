@@ -36,7 +36,7 @@
 		<tr>
 			<td>{{$i}}</td>
 			{{-- show photo use mutator --}}
-			<td>{{$record->user_id}}</td>
+			<td>{{$record->user->name}}</td>
 			<td>{{$record->category_id}}</td>
 			<td>{{$record->photo_id}}</td>
 			<td>{{$record->title}}</td>
