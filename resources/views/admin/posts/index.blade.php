@@ -36,11 +36,11 @@
 		<tr>
 			<td>{{$i}}</td>
 			{{-- show photo use mutator --}}
-			<td>{{$record->user->name}}</td>
-			<td>{{$record->category_id}}</td>
-			<td>{{$record->photo_id}}</td>
+			<td><a href="{{route('admin.posts.edit',$record->id)}}" >{{$record->user->name}}</a> </td>
+			<td>{{$record->category?$record->category->name:'Uncategorized'}}</td>
+			<td><img width="50px" src="{{$record->photo ? $record->photo->file:'http://placehold.it/400x400'}}" alt=""></td>
 			<td>{{$record->title}}</td>
-			<td>{{$record->body}}</td>
+			<td>{{str_limit($record->body,10)}}</td>
 			<td>{{$record->created_at->diffForHumans()}}</td>
 			<td>{{$record->updated_at->diffForHumans()}}</td>
 		</tr>
