@@ -41,6 +41,8 @@
 			<td><img width="50px" src="{{$record->photo ? $record->photo->file:'http://placehold.it/400x400'}}" alt=""></td>
 			<td>{{$record->title}}</td>
 			<td>{{str_limit($record->body,10)}}</td>
+			<td><a href="{{route('home.post',$record->id)}}">View Post</a></td>
+			<td><a href="{{route('admin.comments.show', $record->id)}}">View Comments</a></td>
 			<td>{{$record->created_at->diffForHumans()}}</td>
 			<td>{{$record->updated_at->diffForHumans()}}</td>
 		</tr>
