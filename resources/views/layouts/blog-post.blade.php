@@ -153,4 +153,6 @@
 <script src="{{asset('js/libs/scripts.js')}}"></script>
 </body>
 
+@yield('scripts')
+
 </html>
