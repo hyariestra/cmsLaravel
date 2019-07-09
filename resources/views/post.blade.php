@@ -75,7 +75,8 @@
 
 <div class="media">
 	<a class="pull-left" href="#">
-		<img height="64" class="media-object" src="{{$comment->photo ? $comment->photo:'http://placehold.it/64x64'}}" alt="">
+		{{-- <img height="64" class="media-object" src="{{$comment->photo ? $comment->photo:'http://placehold.it/64x64'}}" alt=""> --}}
+		<img height="64" class="media-object" src="{{$comment->gravatar}}" alt="">
 	</a>
 	<div class="media-body">
 		<h4 class="media-heading">{{$comment->author}}
@@ -87,6 +88,8 @@
 		@if (count($comment->replies) > 0)
 
 		@foreach ($comment->replies as $reply)
+
+		@if($reply->is_active == 1)
 		{{-- nested comment --}} 
 
 		
@@ -126,6 +129,13 @@
 			</div>
 			{{-- end nested comment --}}
 		</div>
+
+		@else
+
+		<h1>no replies</h1>
+
+
+		@endif
 		@endforeach
 
 		@endif

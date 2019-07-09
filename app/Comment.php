@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    
+	
 
 	protected $fillable = [
 
@@ -27,6 +27,14 @@ class Comment extends Model
 	public function post()
 	{
 		return $this->belongsTo('App\Post');
+	}
+
+	public function getGravatarAttribute()
+	{
+
+		$hash = md5( strtolower( trim($this->attributes['email'] ) ) );
+
+		return "http://www.gravatar.com/avatar/$hash";
 	}
 
 }

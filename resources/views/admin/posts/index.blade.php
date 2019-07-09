@@ -43,7 +43,7 @@
 			<td><img width="50px" src="{{$record->photo ? $record->photo->file:'http://placehold.it/400x400'}}" alt=""></td>
 			<td>{{$record->title}}</td>
 			<td>{{str_limit($record->body,10)}}</td>
-			<td><a href="{{route('home.post',$record->id)}}">View Post</a></td>
+			<td><a href="{{route('home.post',$record->slug)}}">View Post</a></td>
 			<td><a href="{{route('admin.comments.show', $record->id)}}">View Comments</a></td>
 			<td>{{$record->created_at->diffForHumans()}}</td>
 			<td>{{$record->updated_at->diffForHumans()}}</td>
@@ -54,5 +54,14 @@
 		@endif
 	</tbody>
 </table>
+
+<div class="col-md-6 text-right">
+	
+</div>
+
+<div class="col-md-6 text-right">
+	{{$posts->render()}}
+</div>
+
 
 @stop
