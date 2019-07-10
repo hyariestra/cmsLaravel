@@ -32,7 +32,7 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        $roles = Role::lists('name','id')->all();
+        $roles = Role::pluck('name','id')->all();
 
         $title = 'create a user';
         return view('admin.users.create',compact('title','roles'));
@@ -96,7 +96,7 @@ class AdminUsersController extends Controller
     {
 
         $user = User::findOrFail($id);
-        $roles=Role::lists('name','id')->all();
+        $roles=Role::pluck('name','id')->all();
         $title = "Edit User";
 
         return view('admin.users.edit',compact('user','roles','title'));
